@@ -1,6 +1,14 @@
 from language import Language
 import string
 import random
+import enum
+
+
+# Перечисление, представляющее вид наследования объектно-ориентированного языка программирования
+class Inheritance(enum.Enum):
+    SINGLE = 1
+    MULTIPLE = 2
+    INTERFACE = 3
 
 
 # Класс ObjectOriented содержит описание объектно-ориентированного языка программирования как базовой альтернативы
@@ -11,7 +19,7 @@ class ObjectOriented(Language):
         self.creat_year = creat_year  # Год создания языка программирования
         self.popularity_perc = popularity_perc  # Процент популярности языка программирования
         self.name = name  # Название языка программирования
-        self.inheritance = ''  # Вид наследования в языке программирования
+        self.inheritance = Inheritance  # Вид наследования в языке программирования
 
     # Функция инициализации объектно-ориентированного языка программирования по входным данным,
     # возвращает измененный индекс массива данных (сколько элкментов взято для инициализации)
@@ -20,11 +28,11 @@ class ObjectOriented(Language):
             return 0
         k = int(str_array[i])
         if k == 1:
-            self.inheritance = 'single'
+            self.inheritance = Inheritance(1)
         elif k == 2:
-            self.inheritance = 'multiple'
+            self.inheritance = Inheritance(2)
         elif k == 3:
-            self.inheritance = 'interface'
+            self.inheritance = Inheritance(3)
         self.creat_year = int(str_array[i + 1])
         self.popularity_perc = float(str_array[i + 2])
         self.name = str_array[i + 3]
@@ -42,11 +50,11 @@ class ObjectOriented(Language):
     def random_generate(self):
         k = random.randint(1, 3)
         if k == 1:
-            self.inheritance = 'single'
+            self.inheritance = Inheritance(1)
         elif k == 2:
-            self.inheritance = 'multiple'
+            self.inheritance = Inheritance(2)
         elif k == 3:
-            self.inheritance = 'interface'
+            self.inheritance = Inheritance(3)
         self.creat_year = random.randint(1940, 2020)
         self.popularity_perc = random.uniform(0.0, 99.9)
         length = random.randint(2, 9)

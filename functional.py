@@ -1,6 +1,13 @@
 from language import Language
 import random
 import string
+import enum
+
+
+# Перечисление, представляющее вид типизации функционального языка программирования
+class Tipisation(enum.Enum):
+    DYNAMIC = 1
+    STATIC = 2
 
 
 # Класс Functional содержит описание функционального языка программирования как базовой альтернативы
@@ -12,7 +19,7 @@ class Functional(Language):
         self.popularity_perc = popularity_perc  # Процент популярности языка программирования
         self.lazy_calculations = True  # Наличие/отсутствие ленивых вычислений для данного языка
         self.name = name  # Название языка программирования
-        self.tipisation = ''  # Типизация в данном языке
+        self.tipisation = Tipisation  # Типизация в данном языке
 
     # Функция инициализации функционального языка программирования по входным данным,
     # возвращает измененный индекс массива данных (сколько элкментов взято для инициализации)
@@ -21,9 +28,9 @@ class Functional(Language):
             return 0
         k = int(str_array[i])
         if k == 1:
-            self.tipisation = 'dynamic'
+            self.tipisation = Tipisation(1)
         elif k == 2:
-            self.tipisation = 'static'
+            self.tipisation = Tipisation(2)
         self.creat_year = int(str_array[i + 1])
         self.popularity_perc = float(str_array[i + 2])
         self.lazy_calculations = bool(str_array[i + 3])
@@ -42,9 +49,9 @@ class Functional(Language):
     def random_generate(self):
         k = random.randint(1, 2)
         if k == 1:
-            self.tipisation = 'dynamic'
+            self.tipisation = Tipisation(1)
         elif k == 2:
-            self.tipisation = 'static'
+            self.tipisation = Tipisation(2)
         self.creat_year = random.randint(1940, 2020)
         self.popularity_perc = random.uniform(0.0, 99.9)
         self.lazy_calculations = bool(random.randint(0, 1))
