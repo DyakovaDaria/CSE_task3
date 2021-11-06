@@ -1,0 +1,8 @@
+Sorted container:
+Container is store 3 languages:
+It is procedural language: Lisp: the year of creation = 1958; popularity percentage = 0.3; quotient = 489.500.
+
+It is procedural language: Kotlin: the year of creation = 2011; popularity percentage = 0.294; quotient = 335.167.
+
+It is procedural language: Python: the year of creation = 1991; popularity percentage = 9.7; quotient = 331.833.
+
